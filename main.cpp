@@ -53,11 +53,11 @@ int main() {
             return torch::relu(linear->forward(X));
         }
     };
-    Net2* model2 = new Net2[100];
+    Net2 model2[100];
     for (int i = 0; i < 100; i++)
         model2[i].to(torch::kCUDA);
     std::cout << timer.Reset().count() << std::endl;
     for (int i = 0; i < 100; i++)
-        std::cout << model2[i].modules()[0] << std::endl << std::endl;
+        std::cout << model2[i] << std::endl << std::endl;
     return 0;
 }
