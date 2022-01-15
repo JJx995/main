@@ -54,10 +54,10 @@ int main() {
         }
     };
     Net2 model2[100];
-    for (int i = 0; i < 100; i++)
-        model2[i].to(torch::kCUDA);
+    for (auto & i : model2)
+        i.to(torch::kCUDA);
     std::cout << timer.Reset().count() << std::endl;
-    for (int i = 0; i < 100; i++)
-        std::cout << model2[i] << std::endl << std::endl;
+    for (const auto & i : model2)
+        std::cout << i << std::endl << std::endl;
     return 0;
 }
